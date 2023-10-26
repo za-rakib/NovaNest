@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // Example content paths...
@@ -13,6 +12,7 @@ module.exports = {
         gray2: "#7C7C7C",
         grey: "#242424",
         blue: "#3B82F6",
+        textblue: "#041942",
         button_bg: "#2A2A2A",
         charcoal: "#374151",
         "eerie-black": "#1F1F1F",
