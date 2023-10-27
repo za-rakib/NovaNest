@@ -17,10 +17,10 @@ import { AntDesign } from "@expo/vector-icons";
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- // console.log({ email, password });
+  // console.log({ email, password });
   return (
-    <SafeAreaView style={tailwind("flex-1 bg-white items-center")}>
-      <View style={tailwind("w-min ")}>
+    <SafeAreaView style={tailwind("flex-1 bg-white px-2 mt-4")}>
+      <View style={tailwind("w-min items-center")}>
         <Image
           style={tailwind("w-52 h-20")}
           source={require("../assets/logo.png")}
@@ -88,7 +88,7 @@ const LoginScreen = ({ navigation }) => {
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={tailwind("mt-20")} />
+        <View style={tailwind("mt-12")} />
         <Pressable
           style={[
             tailwind("w-52 bg-yellow-400 rounded-lg p-2"),

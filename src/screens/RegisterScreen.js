@@ -13,13 +13,13 @@ import Styles from "../assets/css/Styles";
 import { MaterialIcons, Ionicons, AntDesign } from "@expo/vector-icons";
 import { TextInput } from "react-native";
 
-const RegisterScreen = ({navigation}) => {
+const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   return (
-    <SafeAreaView style={tailwind("flex-1 bg-white items-center")}>
-      <View style={tailwind("w-min ")}>
+    <SafeAreaView style={tailwind("flex-1 bg-white px-2 mt-4")}>
+      <View style={tailwind("w-min items-center")}>
         <Image
           style={tailwind("w-52 h-20")}
           source={require("../assets/logo.png")}
@@ -108,7 +108,7 @@ const RegisterScreen = ({navigation}) => {
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={tailwind("mt-20")} />
+        <View style={tailwind("mt-12")} />
         <Pressable
           style={[
             tailwind("w-52 bg-yellow-400 rounded-lg p-2"),

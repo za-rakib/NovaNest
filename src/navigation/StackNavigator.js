@@ -14,7 +14,6 @@ const StackNavigator = () => {
         initialRouteName="Login"
         screenOptions={() => ({
           headerShown: false,
-          gestureEnabled: true,
         })}
       >
         <Stack.Screen name="Login" component={LoginScreen} />
