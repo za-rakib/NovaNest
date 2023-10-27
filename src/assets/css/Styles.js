@@ -11,7 +11,7 @@ const Styles = StyleSheet.create({
     ...tailwind("bg-gray-300 rounded h-13 px-3 w-full pb-2"),
   },
   input2: {
-    ...tailwind("bg-gray-400 rounded h-13 px-3 w-full"),
+    ...tailwind("bg-gray-300 rounded h-13 px-3 w-full"),
   },
   avatar: {
     ...tailwind("h-11 w-11 rounded-full border-2 border-charcoal"),

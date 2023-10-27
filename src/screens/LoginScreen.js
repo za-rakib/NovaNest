@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, Image, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  KeyboardAvoidingView,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 import { tailwind } from "../lib/tailwind";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "../assets/css/Styles";
@@ -7,13 +14,13 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { TextInput } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log({ email, password });
+ // console.log({ email, password });
   return (
     <SafeAreaView style={tailwind("flex-1 bg-white items-center")}>
-      <View style={tailwind("w-min")}>
+      <View style={tailwind("w-min ")}>
         <Image
           style={tailwind("w-52 h-20")}
           source={require("../assets/logo.png")}
@@ -49,7 +56,7 @@ const LoginScreen = () => {
           </View>
         </View>
 
-        <View style={tailwind("mt-10")}>
+        <View style={tailwind("mt-6")}>
           <View style={[Styles.input2, tailwind("flex-row items-center py-1")]}>
             <AntDesign
               name="lock"
@@ -75,14 +82,31 @@ const LoginScreen = () => {
 
         <View style={tailwind("flex-row justify-between items-center mt-3")}>
           <Text>Keep me logged in</Text>
-          <Text style={tailwind("text-azure font-bold")}>
-            Forgate password?
+          <TouchableOpacity>
+            <Text style={tailwind("text-azure font-bold")}>
+              Forgate password?
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={tailwind("mt-20")} />
+        <Pressable
+          style={[
+            tailwind("w-52 bg-yellow-400 rounded-lg p-2"),
+            { marginLeft: "auto", marginRight: "auto" },
+          ]}
+        >
+          <Text style={tailwind("text-center text-white text-xl leading-6")}>
+            Login
           </Text>
-        </View>
-        <View style={tailwind("mt-24")} />
-        <View>
-          <Text>fjnfjjf</Text>
-        </View>
+        </Pressable>
+        <Pressable
+          onPress={() => navigation.navigate("Register")}
+          style={tailwind("mt-5")}
+        >
+          <Text style={tailwind("text-center text-gray-400 text-xl leading-6")}>
+            Don't have an account? Sign up
+          </Text>
+        </Pressable>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

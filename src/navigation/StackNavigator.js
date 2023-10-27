@@ -12,16 +12,12 @@ const StackNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Login"
-        // screenOptions={() => ({
-        //   headerShown: false,
-        //   gestureEnabled: true,
-        // })}
+        screenOptions={() => ({
+          headerShown: false,
+          gestureEnabled: true,
+        })}
       >
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
