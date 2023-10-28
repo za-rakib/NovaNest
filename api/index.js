@@ -5,7 +5,7 @@ const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 
 const app = express();
-const port = 5050;
+const port = 8000;
 const cors = require("cors");
 app.use(cors());
 
@@ -29,6 +29,22 @@ mongoose
     console.log("Error connecting to MongoDb", err);
   });
 
+// mongoose
+//   .connect("mongodb://192.168.0.101/NovaNest2", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => {
+//     console.log("Connected to Mongo Db");
+//   })
+//   .catch((err) => {
+//     console.log("Error connecting to MongoDb", err);
+//   });
+
+// app.listen(port, "192.168.0.101", () => {
+//   console.log("Server is running on http://192.168.0.101");
+// });
+
 const User = require("./models/user");
 const Order = require("./models/order");
 
@@ -38,14 +54,14 @@ const sendVerificationEmail = async (email, verificationToken) => {
     // Configure the email service or SMTP details here
     service: "gmail",
     auth: {
-      user: "sujananand0@gmail.com",
-      pass: "wkkjjprzkqxtboju",
+      user: "rakib.dev70@gmail.com",
+      pass: "divu ljhj zvhw kpua",
     },
   });
 
   // Compose the email message
   const mailOptions = {
-    from: "amazon.com",
+    from: "novanest.com",
     to: email,
     subject: "Email Verification",
     text: `Please click the following link to verify your email: http://localhost:8000/verify/${verificationToken}`,
@@ -65,7 +81,6 @@ const sendVerificationEmail = async (email, verificationToken) => {
 app.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
-
     // Check if the email is already registered
     const existingUser = await User.findOne({ email });
     if (existingUser) {

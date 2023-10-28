@@ -6,6 +6,7 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
   Pressable,
+  ScrollView,
 } from "react-native";
 import { tailwind } from "../lib/tailwind";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -91,8 +92,12 @@ const LoginScreen = ({ navigation }) => {
         <View style={tailwind("mt-12")} />
         <Pressable
           style={[
-            tailwind("w-52 bg-yellow-400 rounded-lg p-2"),
-            { marginLeft: "auto", marginRight: "auto" },
+            tailwind("w-52 rounded-lg p-2"),
+            {
+              marginLeft: "auto",
+              marginRight: "auto",
+              backgroundColor: "#e37576",
+            },
           ]}
         >
           <Text style={tailwind("text-center text-white text-xl leading-6")}>
@@ -103,7 +108,7 @@ const LoginScreen = ({ navigation }) => {
           onPress={() => navigation.navigate("Register")}
           style={tailwind("mt-5")}
         >
-          <Text style={tailwind("text-center text-gray-400 text-xl leading-6")}>
+          <Text style={tailwind("text-center text-gray-400 text-lg leading-6")}>
             Don't have an account? Sign up
           </Text>
         </Pressable>

@@ -6,17 +6,40 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
   Pressable,
+  Alert,
 } from "react-native";
 import { tailwind } from "../lib/tailwind";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "../assets/css/Styles";
 import { MaterialIcons, Ionicons, AntDesign } from "@expo/vector-icons";
 import { TextInput } from "react-native";
+import axios from "axios";
 
 const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const handleRegister = () => {
+    const user = {
+      name: name,
+      email: email,
+      password: password,
+    };
+    //send a post request to backend
+    axios
+      .post("http://192.168.0.101:8000/register", user)
+      .then((response) => {
+        // console.log(response);
+        Alert.alert("Registration successfully");
+        setName("");
+        setEmail("");
+        setPassword("");
+      })
+      .catch((err) => {
+        Alert.alert("Registration failed");
+        console.log(err);
+      });
+  };
   return (
     <SafeAreaView style={tailwind("flex-1 bg-white px-2 mt-4")}>
       <View style={tailwind("w-min items-center")}>
@@ -110,9 +133,14 @@ const RegisterScreen = ({ navigation }) => {
         </View>
         <View style={tailwind("mt-12")} />
         <Pressable
+          onPress={handleRegister}
           style={[
-            tailwind("w-52 bg-yellow-400 rounded-lg p-2"),
-            { marginLeft: "auto", marginRight: "auto" },
+            tailwind("w-52  rounded-lg p-2"),
+            {
+              marginLeft: "auto",
+              marginRight: "auto",
+              backgroundColor: "#e37576",
+            },
           ]}
         >
           <Text style={tailwind("text-center text-white text-xl leading-6")}>
@@ -123,7 +151,7 @@ const RegisterScreen = ({ navigation }) => {
           onPress={() => navigation.navigate("Login")}
           style={tailwind("mt-5")}
         >
-          <Text style={tailwind("text-center text-gray-400 text-xl leading-6")}>
+          <Text style={tailwind("text-center text-gray-400 text-lg leading-6")}>
             Already have an account? Login
           </Text>
         </Pressable>
